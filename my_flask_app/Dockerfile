@@ -1,9 +1,11 @@
 FROM python:3.8
 
 WORKDIR /app
+COPY . .
 
-COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY app.py .
-CMD [ "python", "./app.py" ]
+ENV PORT=8080
+EXPOSE 8080
+
+CMD [ "python", "./wait.py" ]
