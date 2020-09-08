@@ -6,7 +6,6 @@ api = Api(app)
 
 class Sum(Resource):
 	def get(self, a, b):
-		print('get', a, b)
 		data = None
 		if not a.isnumeric():
 			data = 'a'
