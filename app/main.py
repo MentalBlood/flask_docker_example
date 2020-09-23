@@ -5,7 +5,10 @@ app = Flask(__name__)
 api = Api(app)
 
 class Sum(Resource):
-	def get(self, a, b):
+	def get(self):
+		args = request.args
+		a = args['a']
+		b = args['b']
 		data = None
 		if not a.isnumeric():
 			data = 'a'
@@ -14,7 +17,7 @@ class Sum(Resource):
 		else:
 			data = int(a) + int(b)
 		return {'data': data}
-api.add_resource(Sum, '/<a>/<b>')
+api.add_resource(Sum, '/')
 
 if __name__ == '__main__':
 	app.run()
