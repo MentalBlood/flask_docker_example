@@ -16,7 +16,7 @@ class Sum(Resource):
 			data = 'b'
 		else:
 			data = int(a) + int(b)
-		return data
+		return {'data': data}
 api.add_resource(Sum, '/')
 
 if __name__ == '__main__':
